@@ -14,7 +14,9 @@ function shopNavBar(shop){
     navImg.append(img)
     img.src = shop.img
 //creats the images for the different shops and displays them in our navbar!
-
+    img.addEventListener('mouseover', ()=>{
+        nameMouseOver(shop)
+    }, { once: true })
     img.addEventListener('click', ()=>{
         shopInfo(shop)
     })
@@ -36,4 +38,11 @@ function shopInfo(shop){
     wifi.textContent = `Has Wifi: ${shop.wifi}`
     comments.textContent = shop.comments
 
+}
+
+function nameMouseOver(shop){
+    const navImg = document.querySelector('#shopList')
+    const h1 = document.createElement('h1')
+    navImg.append(h1)
+    h1.textContent = shop.name
 }

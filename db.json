@@ -9,6 +9,16 @@
             "roastery": true,
             "wifi": true,
             "comments": ""
+        },
+        {
+            "id": 2,
+            "name": "Corvus Coffee Roasters",
+            "img": "https://dailycoffeenews.com/wp-content/uploads/2017/02/corvus-coffee-denver.jpeg",
+            "distance": 0.9, 
+            "space_rating": 8,
+            "roastery": true,
+            "wifi": true,
+            "comments": ""
         }
     ]
 }

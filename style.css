@@ -3,14 +3,6 @@ body {
     text-align: center;
   }
 
-
-#shopDetails {
-    margin-left: auto;
-    margin-right: auto;
-    display:flex;
-    gap: 40px;
-}
-
 #shopList {
     position: relative;
 }
@@ -26,7 +18,11 @@ body {
     /* Additional styles if needed */
     /* filter: grayscale(0%); Example: Remove grayscale filter */
     margin-bottom: 10px;
+
 }
+#shopList img:last-child {
+    margin-right: 0; /* Remove margin for the last image */
+  }
 
 #shopList img:hover {
     opacity: 0.7; /* Set the opacity on hover to 70% */
@@ -35,7 +31,10 @@ body {
 
 #shopDetails img {
     width:auto;
-    height:250px;
+    height:350px;
+    margin-top: 20px;
+    position: absolute;
+      top: 120px;
 }
 
 #shopDetails {
@@ -65,6 +64,21 @@ body {
 #mainTitle h1{
     font-size: 46px;
     font-family: 'Courier New', Courier, monospace;
-
+    margin-bottom: 100px;
+}
+#shopList h1 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure the h1 is above the image */
+    color: aliceblue;
 }
 
+#secondTitle {
+    position: absolute;
+    top: 5%;
+    right: 87%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}

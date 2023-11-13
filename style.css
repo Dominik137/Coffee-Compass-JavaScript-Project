@@ -1,6 +1,7 @@
 body {
     background: cornsilk;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
   }
 
 #shopList {
@@ -73,6 +74,46 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1; /* Ensure the h1 is above the image */
     color: aliceblue;
+}
+
+#input-form {
+    position: relative;
+    bottom: 300px;
+    float: right;
+    max-width: 200px;
+    margin-right: 100px;
+
+}
+
+#coffeeStoreInput input[type="text"] {
+    padding: 5px;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    filter: drop-shadow(0 0 1px);
+}
+
+#coffeeStoreInput input[type="text"]:hover {
+    filter: drop-shadow(0 0 2px);
+
+}
+
+
+
+#coffeeStoreInput label {
+    padding: 10px;
+}
+
+#submit-button {
+    background: #5b7c99;
+    padding: 7px;
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    filter: drop-shadow(0 0 1px)
+}
+
+#submit-button:hover {
+    background: #29344a;
+    filter: drop-shadow(0 0 2px);
 }
 
 #secondTitle {

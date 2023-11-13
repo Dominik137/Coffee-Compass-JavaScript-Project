@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 fetch('http://localhost:3000/shops')
 .then((resp) =>resp.json())
 .then((shops) => {
@@ -46,3 +47,6 @@ function nameMouseOver(shop){
     navImg.append(h1)
     h1.textContent = shop.name
 }
+=======
+
+>>>>>>> 21b81e2844b8b5694e5b89364869cc8fbe8ebca7

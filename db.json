@@ -1,0 +1,16 @@
+{
+    "shops": [
+        {
+            "id": 1,
+            "name": "Huckleberry Roasters",
+            "img": "https://cdn.shopify.com/s/files/1/0299/9077/files/IMG_0017.jpg?v=1572496178",
+            "distance": 0.4, 
+            "space_rating": 4,
+            "roastery": true,
+            "wifi": true,
+            "comments": ""
+        }
+
+
+    ]
+}

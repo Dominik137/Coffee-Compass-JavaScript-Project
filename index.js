@@ -18,9 +18,6 @@ fetch('http://localhost:3000/shops')
 
     shops.forEach(shop => {
         shopNavBar(shop)
-})
-
-
     });
 
     
@@ -48,14 +45,10 @@ function shopNavBar(shop){
     img.src = shop.img
 //creats the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
-        nameMouseOver(shop, div)
-    }, 
-    // { once: true }
-    )
+        nameMouseOver(shop)
+    }, { once: true })
     img.addEventListener('click', ()=>{
         shopInfo(shop)
-        shopMap.style.display = "block"
-
     })
  
 
@@ -94,8 +87,7 @@ function shopInfo(shop){
 
 function nameMouseOver(shop, div){
     const h1 = document.createElement('h1')
-    // document.querySelector("#shopList").append(h1)
-    div.append(h1)
+    navImg.append(h1)
     h1.textContent = shop.name
     h1.className = "shopNameh1"
 

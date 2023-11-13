@@ -8,6 +8,7 @@ fetch('http://localhost:3000/shops')
 
 })
 
+
 function shopNavBar(shop){
     const navImg = document.querySelector('#shopList')
     const img = document.createElement('img')
@@ -23,6 +24,7 @@ function shopNavBar(shop){
 }
 
 function shopInfo(shop){
+
     const title = document.querySelector('#shopTitle')
     const img = document.querySelector('#shopImage')
     const distance = document.querySelector('#shopDistance')
@@ -30,6 +32,7 @@ function shopInfo(shop){
     const roastery = document.querySelector('#isShopRoastery')
     const wifi = document.querySelector('#shopWifi')
     const comments = document.querySelector('#shopComments')
+    
     title.textContent = shop.name
     img.src = shop.img
     distance.textContent = `${shop.distance} Miles`
@@ -47,11 +50,19 @@ function nameMouseOver(shop){
     h1.textContent = shop.name
 }
 
+const newCoffeeShopForm = document.querySelector("#coffeeStoreInput")
+newCoffeeShopForm.addEventListener("submit", (e) => {
+    e.preventDefault()
 
+    const newShop = {
+        name: e.target["new-name-input"].value,
+        img: e.target["new-image-input"].value,
+        space_rating: e.target["new-space-rating-input"].value,
+        roastery: e.target["new-roastery-input"].value,
+        wifi: e.target["new-wifi-input"].value,
+    }
 
-function nameMouseOver(shop){
-    const navImg = document.querySelector('#shopList')
-    const h1 = document.createElement('h1')
-    navImg.append(h1)
-    h1.textContent = shop.name
-}
+ 
+
+    
+})

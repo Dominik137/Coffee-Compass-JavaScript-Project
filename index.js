@@ -52,3 +52,10 @@ function nameMouseOver(shop){
 >>>>>>> 21b81e2844b8b5694e5b89364869cc8fbe8ebca7
 
 }
+
+function nameMouseOver(shop){
+    const navImg = document.querySelector('#shopList')
+    const h1 = document.createElement('h1')
+    navImg.append(h1)
+    h1.textContent = shop.name
+}

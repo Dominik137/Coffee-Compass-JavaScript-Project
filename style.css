@@ -67,13 +67,3 @@ body {
     font-family: 'Courier New', Courier, monospace;
 
 }
-
-#shopList h1 {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    color: aliceblue;
-   
-}

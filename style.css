@@ -78,10 +78,10 @@ body {
 
 #input-form {
     position: relative;
-    bottom: 300px;
+    bottom: 400px;
     float: right;
-    max-width: 200px;
-    margin-right: 100px;
+    max-width: 300px;
+    margin-right: 75px;
 
 }
 

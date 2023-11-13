@@ -8,13 +8,20 @@ fetch('http://localhost:3000/shops')
 
 })
 
+    const globalName = document.querySelector('#shopTitle')
+    const globalImg = document.querySelector('#shopImage')
+    const globalDistance = document.querySelector('#shopDistance')
+    const globalSpaceRating = document.querySelector('#shopSpaceRating')
+    const globalWifi = document.querySelector('#shopWifi')
+    const globalComments = document.querySelector('#shopComments')
+
 
 function shopNavBar(shop){
     const navImg = document.querySelector('#shopList')
     const img = document.createElement('img')
     navImg.append(img)
     img.src = shop.img
-//creats the images for the different shops and displays them in our navbar!
+//creates the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
         nameMouseOver(shop)
     }, { once: true })
@@ -24,22 +31,16 @@ function shopNavBar(shop){
 }
 
 function shopInfo(shop){
-
-    const title = document.querySelector('#shopTitle')
-    const img = document.querySelector('#shopImage')
-    const distance = document.querySelector('#shopDistance')
-    const spaceRating = document.querySelector('#shopSpaceRating')
-    const roastery = document.querySelector('#isShopRoastery')
-    const wifi = document.querySelector('#shopWifi')
-    const comments = document.querySelector('#shopComments')
     
-    title.textContent = shop.name
-    img.src = shop.img
-    distance.textContent = `${shop.distance} Miles`
-    spaceRating.textContent = `Space rating: ${shop.space_rating}`
-    roastery.textContent = `Is Roastery: ${shop.roastery}`
-    wifi.textContent = `Has Wifi: ${shop.wifi}`
-    comments.textContent = shop.comments
+    globalName.textContent = shop.name
+    globalImg.src = shop.img
+    globalDistance.textContent = `${shop.distance} Miles`
+    globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
+    globalWifi.textContent = `Has Wifi: ${shop.wifi}`
+    globalComments.textContent = shop.comments
+
+    //global variable for use everywhere
+    currentShop = shop
 
 }
 
@@ -50,19 +51,39 @@ function nameMouseOver(shop){
     h1.textContent = shop.name
 }
 
+//event listener for 'add new coffee shop' form, updates in frontend and backend
 const newCoffeeShopForm = document.querySelector("#coffeeStoreInput")
 newCoffeeShopForm.addEventListener("submit", (e) => {
     e.preventDefault()
 
     const newShop = {
         name: e.target["new-name-input"].value,
-        img: e.target["new-image-input"].value,
+        img: e.target["new-img-input"].value,
+        distance: e.target["new-distance-input"].value,
         space_rating: e.target["new-space-rating-input"].value,
-        roastery: e.target["new-roastery-input"].value,
         wifi: e.target["new-wifi-input"].value,
     }
 
- 
+    shopInfo(newShop)
 
-    
+    newCoffeeShopForm.reset()
+
+    const navImg = document.querySelector('#shopList')
+    const img = document.createElement('img')
+    navImg.append(img)
+    img.src = newShop.img
+
+    fetch(`http://localhost:3000/shops`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "name": newShop.name,
+            "img": newShop.img,
+            "distance": newShop.distance,
+            "space_rating": newShop.space_rating,
+            "wifi": newShop.wifi
+        })
+    })
 })

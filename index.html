@@ -12,21 +12,17 @@
 </head>
 
 <body>
-    <div id="mainTitle">
-        <h1>Coffee Compass</h1>
-    </div>
-    <div id="secondTitle">
-        <h2>Shops:</h2>
-    </div>
-    <div id="shopNavBar">
-        <nav id="shopList">
+    <div id="fullScreen">
+    <div class ="container">
+        <div class="header">Coffee Compass</div>
+        <div id="shopNavBar" class="column">
+            <h2 id="secondTitle">Shops:</h2>
+            <nav id="shopList">
             <!---- add coffe shops here, make appear on side! ---->
         </nav>
-    </div>
-
-<section id="shopDetails">
-    <!---- all the details for the shop goes here-->
-    <img id="shopImage" src>
+        </div>
+        <div id="shopDetails" class="column">
+            <img id="shopImage" src>
         <div id="dets">
             <h2 id="shopTitle"></h2>
             <h3 id="shopDistance"></h3>
@@ -35,9 +31,28 @@
             <h3 id="shopWifi"></h3>
             <h3 id="shopComments"></h3>
         </div>
-</section>
+    </div>
+        <div id="input-form" class="column">
+            <h2 id="new-shop-heading">Add New Coffee Shop</h2>
+            <form id="coffeeStoreInput" action="#" method="POST">
+                    <input id="new-name-input" type="text" name="new-name-input" placeholder="Name">
+                    <input id="new-img-input" type="text" name="new-img-input" placeholder="Image">
+                    <input id="new-distance-input" type="text" name="new-distance-input" placeholder="Distance from Flatiron School">
+                    <input id="new-space-rating-input" type="text" name="new-space-rating-input" placeholder="Rate the space 1-5">
+                    <br>
+                    <label>Do they have Wifi?</label>
+                    <input id="new-wifi-input" type="checkbox" value="true" name="new-roastery-input">
+                    <br>
+                    <input id="submit-button" type="submit" value="Add">
+             </form>
 
-<div id="input-form">
+        </div>
+    </div>
+    <!---- all the details for the shop goes here-->
+   
+
+
+<!-- <div id="input-form">
     <h2 id="new-shop-heading">Add New Coffee Shop</h2>
     <form id="coffeeStoreInput" action="#" method="POST">
             <input id="new-name-input" type="text" name="new-name-input" placeholder="Name">
@@ -50,8 +65,8 @@
             <br>
             <input id="submit-button" type="submit" value="Add">
      </form>
-</div>
-  
+</div> -->
+<!-- </div> -->
 
   <script defer src="index.js"></script>
 </body>

@@ -19,12 +19,13 @@
       "comments": ""
     },
     {
+      "id": 3,
       "name": "Coffee High Co.",
       "img": "https://lh3.googleusercontent.com/p/AF1QipPjKj_X5zyYErzkwExYVGIcgI9h5c0c-5TWjALk=s1360-w1360-h1020",
       "distance": ".10",
       "space_rating": "3",
-      "wifi": "true",
-      "id": 3
+      "wifi": "true"
     }
+
   ]
 }

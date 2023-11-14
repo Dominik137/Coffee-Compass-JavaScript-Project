@@ -21,9 +21,10 @@ function shopNavBar(shop){
     const img = document.createElement('img')
     navImg.append(img)
     img.src = shop.img
+    img.id = "shopNameImg"
 //creates the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
-        nameMouseOver(shop)
+        nameMouseOver(shop, img)
     }, { once: true })
     img.addEventListener('click', ()=>{
         shopInfo(shop)
@@ -44,10 +45,10 @@ function shopInfo(shop){
 
 }
 
-function nameMouseOver(shop){
-    const navImg = document.querySelector('#shopList')
+function nameMouseOver(shop, img){
     const h1 = document.createElement('h1')
-    navImg.append(h1)
+    // h1.className
+    img.append(h1)
     h1.textContent = shop.name
 }
 

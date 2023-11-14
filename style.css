@@ -1,87 +1,38 @@
-.container{
-    display: grid;
-    grid-template-rows: auto; /* Automatically adjust the height of the header */
-    grid-template-columns: repeat(3, 1fr); /* Three columns, adjust as needed */
-    gap: 10px; /* Adjust the gap between columns */
-    padding: 20px;
-    margin-left: 60px;
-}
-
-.header {
-    grid-column: 1 / -1; /* Header spans across all columns */
-    padding: 10px;
-    text-align: center;
-    font-size: 56px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-  }
-
-  .column {
-    border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-  
-  }
-
 body {
     background: cornsilk;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
   }
 
-#shopList {
-    position: relative;
-}
 
-#shopContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start of the cross-axis (left) */
-    margin-top: 20px; /* Adjust the margin-top as needed */
+#shopDetails {
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    gap: 40px;
 }
 
 #shopList img {
-    width: 100%;
-    height: 170px;
-    display: block;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    margin-bottom: 10px;
-    border-radius: 4%;
-}
-#shopList img:last-child {
-    margin-bottom: 0; /* Remove margin for the last image */
-}
-
-
-#shopList img:hover {
-    opacity: 0.7; /* Set the opacity on hover to 70% */
-    /* filter: grayscale(100%); Example: Apply grayscale filter on hover */
+    width:auto;
+    height:150px;
 }
 
 #shopDetails img {
     width:auto;
-    height:350px;
-    border-radius: 5%;
-    /* margin-top: 20px;
-    position: absolute;
-      top: 120px;
-      border-radius: 4px; */
+    height:250px;
 }
 
-/* #shopDetails {
+#shopDetails {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-} */
+}
 
 
 #shopImage {
-    max-width: 100%;
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
 }
-
 
 #dets {
     margin-top: 20px; /* Adjust as needed */
@@ -93,33 +44,9 @@ body {
     align-items: flex-start;
 }
 
-.shopNameImg h1 {
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure the h1 is above the image */
-    color: aliceblue;
-}
-
-#input-form {
-    /* position: relative; */
-    bottom: 400px;
-    float: right;
-    /* max-width: 300px; */
-    margin-right: 75px;
-
-}
-
-#coffeeStoreInput input[type="text"] {
-    padding: 5px;
-    margin: 10px;
+#mainTitle h1{
+    font-size: 46px;
     font-family: 'Courier New', Courier, monospace;
-    filter: drop-shadow(0 0 1px);
-}
-
-#coffeeStoreInput input[type="text"]:hover {
-    filter: drop-shadow(0 0 2px);
 
 }
 
@@ -132,26 +59,7 @@ body {
     padding: 7px;
     margin: 10px;
     font-family: 'Courier New', Courier, monospace;
-    filter: drop-shadow(0 0 1px)
-}
-
-#submit-button:hover {
-    background: #29344a;
-    filter: drop-shadow(0 0 2px);
-}
-
-#secondTitle {
-    font-family: 'Courier New', Courier, monospace;
-    margin-left: 60px;
-    font-size: 38px;
-    margin-bottom: 20px;
-    margin-top: -10px; 
-}
-#new-shop-heading{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 32px;
-    margin-bottom: 20px;
-    margin-top: -10px; 
+    
 }
 
 #shopMap {

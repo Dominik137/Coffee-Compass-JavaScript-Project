@@ -1,12 +1,26 @@
 fetch('http://localhost:3000/shops')
 .then((resp) =>resp.json())
 .then((shops) => {
+
+
+// fetch random coffee image from external API and display on main page
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
+    .then(r => r.json())
+    .then(gifs => {
+        
+        const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
+        const randomCoffeeImg = randomCoffee.images.original.url
+        globalImg.src = randomCoffeeImg
+                
+})
+
     shops.forEach(shop => {
         shopNavBar(shop)
+})
+
     });
 
-
-})
+    
 
     const globalName = document.querySelector('#shopTitle')
     const globalImg = document.querySelector('#shopImage')
@@ -14,6 +28,9 @@ fetch('http://localhost:3000/shops')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
     const globalComments = document.querySelector('#shopComments')
+
+    const welcomeText = document.createElement("p")
+    globalImg.append(welcomeText)
 
 
 function shopNavBar(shop){

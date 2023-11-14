@@ -1,7 +1,7 @@
 .container{
     display: grid;
     grid-template-rows: auto; /* Automatically adjust the height of the header */
-    grid-template-columns: repeat(3, 1fr); /* Three columns, adjust as needed */
+    grid-template-columns: 300px 1fr 300px; /* Three columns, adjust as needed */
     gap: 10px; /* Adjust the gap between columns */
     padding: 20px;
     margin-left: 60px;
@@ -16,11 +16,17 @@
     font-weight: bold;
   }
 
-  .column {
+    .column {
     border: 1px solid #ddd;
     padding: 20px;
     text-align: center;
   
+  }
+  
+  .middleColumn {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
   }
 
 body {
@@ -48,6 +54,11 @@ body {
     transition: opacity 0.3s ease;
     margin-bottom: 10px;
     border-radius: 4%;
+    z-index: 0;
+}
+#shopList div{
+    margin-bottom: 10px;
+    
 }
 #shopList img:last-child {
     margin-bottom: 0; /* Remove margin for the last image */
@@ -61,8 +72,9 @@ body {
 
 #shopDetails img {
     width:auto;
-    height:350px;
+    height:550px;
     border-radius: 5%;
+
     /* margin-top: 20px;
     position: absolute;
       top: 120px;
@@ -93,13 +105,17 @@ body {
     align-items: flex-start;
 }
 
-.shopNameImg h1 {
+.shopNameh1  {
     position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 15%;
+    left: 50%; */
+    /* transform: translate(-25%, -390%); */
+    transform: translate(2px, -190px);
     z-index: 1; /* Ensure the h1 is above the image */
     color: aliceblue;
+    padding: 0px;
+    user-select: none;
+    pointer-events: none
 }
 
 #input-form {
@@ -154,4 +170,24 @@ body {
     font-size: 32px;
     margin-bottom: 20px;
     margin-top: -10px; 
+    
 }
+#headerrr{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  /* @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+  } */
+ 

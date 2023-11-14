@@ -7,7 +7,10 @@
       "distance": 0.4,
       "space_rating": 4,
       "wifi": true,
-      "comments": ""
+      "hours": {
+        "opening": 7,
+        "closing": 17 
+      }
     },
     {
       "id": 2,
@@ -16,7 +19,10 @@
       "distance": 0.9,
       "space_rating": 8,
       "wifi": true,
-      "comments": ""
+      "hours": {
+        "opening": 6,
+        "closing": 18 
+      }
     },
     {
       "id": 3,
@@ -24,8 +30,11 @@
       "img": "https://lh3.googleusercontent.com/p/AF1QipPjKj_X5zyYErzkwExYVGIcgI9h5c0c-5TWjALk=s1360-w1360-h1020",
       "distance": ".10",
       "space_rating": "3",
-      "wifi": "true"
+      "wifi": "true",
+      "hours": {
+        "opening": 8,
+        "closing": 16 
+      }
     }
-
   ]
 }

@@ -2,36 +2,39 @@ fetch('http://localhost:3000/shops')
 .then((resp) =>resp.json())
 .then((shops) => {
 
+    shopMap.style.display = "none"
+    
 
 // fetch random coffee image from external API and display on main page
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
-    .then(r => r.json())
-    .then(gifs => {
+//     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
+//     .then(r => r.json())
+//     .then(gifs => {
         
-        const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
-        const randomCoffeeImg = randomCoffee.images.original.url
-        globalImg.src = randomCoffeeImg
+//         const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
+//         const randomCoffeeImg = randomCoffee.images.original.url
+//         globalImg.src = randomCoffeeImg
                 
-})
+// })
 
     shops.forEach(shop => {
         shopNavBar(shop)
 })
 
+
     });
 
     
-
     const globalName = document.querySelector('#shopTitle')
     const globalImg = document.querySelector('#shopImage')
-    const globalDistance = document.querySelector('#shopDistance')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
-    const globalComments = document.querySelector('#shopComments')
 
-    const welcomeText = document.createElement("p")
-    globalImg.append(welcomeText)
+    const shopMap = document.querySelector("#shopMap")
+    const dets = document.querySelector("#dets")
 
+    dets.append(shopMap)
+
+    
 
 function shopNavBar(shop){
     const navImg = document.querySelector('#shopList')
@@ -45,22 +48,37 @@ function shopNavBar(shop){
     }, { once: true })
     img.addEventListener('click', ()=>{
         shopInfo(shop)
+        shopMap.style.display = "block"
+
     })
 }
+
 
 function shopInfo(shop){
     
     globalName.textContent = shop.name
     globalImg.src = shop.img
-    globalDistance.textContent = `${shop.distance} Miles`
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-    globalWifi.textContent = `Has Wifi: ${shop.wifi}`
-    globalComments.textContent = shop.comments
 
+    
+    if (shop.wifi === true) {
+        globalWifi.textContent = "Wifi",
+        globalWifi.style.color = "#549c30"
+        globalWifi.style.backgroundColor = "#d1ffbd"
+    } else {
+        globalWifi.textContent = "No Wifi";
+        globalWifi.style.color = "#cc3232";
+        globalWifi.style.backgroundColor = "#ffc9bb"
+    }
+        
     //global variable for use everywhere
     currentShop = shop
 
+    initMap(shop)
+
 }
+
+
 
 function nameMouseOver(shop, img){
     const h1 = document.createElement('h1')
@@ -77,19 +95,19 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
     const newShop = {
         name: e.target["new-name-input"].value,
         img: e.target["new-img-input"].value,
-        distance: e.target["new-distance-input"].value,
         space_rating: e.target["new-space-rating-input"].value,
-        wifi: e.target["new-wifi-input"].value,
+        latitude: e.target["new-latitude-input"].value,
+        longitude: e.target["new-longitude-input"].value,
+        wifi: e.target["new-wifi-input"].checked,
     }
 
+
+
     shopInfo(newShop)
+    shopNavBar(newShop)
+    initMap(newShop)
 
     newCoffeeShopForm.reset()
-
-    const navImg = document.querySelector('#shopList')
-    const img = document.createElement('img')
-    navImg.append(img)
-    img.src = newShop.img
 
     fetch(`http://localhost:3000/shops`, {
         method: "POST",
@@ -99,7 +117,8 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
         body: JSON.stringify({
             "name": newShop.name,
             "img": newShop.img,
-            "distance": newShop.distance,
+            "latitude": newShop.latitude,
+            "longitude": newShop.longitude,
             "space_rating": newShop.space_rating,
             "wifi": newShop.wifi
         })

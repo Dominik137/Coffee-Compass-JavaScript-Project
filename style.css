@@ -123,8 +123,6 @@ body {
 
 }
 
-
-
 #coffeeStoreInput label {
     padding: 10px;
 }
@@ -155,3 +153,13 @@ body {
     margin-bottom: 20px;
     margin-top: -10px; 
 }
+
+#shopMap {
+    height: 300px;
+    width: 100%;
+}
+
+
+
+
+

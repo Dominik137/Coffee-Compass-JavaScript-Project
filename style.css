@@ -97,6 +97,7 @@ body {
 
 #dets {
     margin-top: 20px; /* Adjust as needed */
+    display: subgrid;
 }
 
 #shopNavBar {
@@ -192,3 +193,21 @@ body {
   } */
  
   /* /test */
+
+  #shopMap {
+    height: 400px;
+    max-width: 100%;
+    border: 6px;
+    margin: 50px;
+    justify-items: center;
+    border-radius: 4px;
+    border-style: groove;
+    border-color: #d3d3d3;
+  }
+
+  #shopWifi  {
+    margin-left: 250px;
+    margin-right: 250px
+    
+
+  }

@@ -6,7 +6,7 @@ fetch('http://localhost:3000/shops')
     
 
 // fetch random coffee image from external API and display on main page
-//     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
+//     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
 //     .then(r => r.json())
 //     .then(gifs => {
         
@@ -28,18 +28,20 @@ fetch('http://localhost:3000/shops')
     const globalImg = document.querySelector('#shopImage')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
+    const globalTime = document.querySelector("#shopTime")
 
-    const shopMap = document.querySelector("#shopMap")
-    const dets = document.querySelector("#dets")
+    const shopMap = document.querySelector("#shopMap")    
 
-    dets.append(shopMap)
-
-    
+    const mapLink = document.createElement("script")
+    mapLink.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`
+    shopMap.append(mapLink)
 
 function shopNavBar(shop){
     const navImg = document.querySelector('#shopList')
+    const div = document.createElement('div')
     const img = document.createElement('img')
-    navImg.append(img)
+    div.append(img)
+    navImg.append(div)
     img.src = shop.img
 //creats the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
@@ -52,6 +54,7 @@ function shopNavBar(shop){
         shopMap.style.display = "block"
 
     })
+
 }
 
 
@@ -75,10 +78,10 @@ function shopInfo(shop){
     //global variable for use everywhere
     currentShop = shop
 
+
     initMap(shop)
 
 }
-
 
 
 function nameMouseOver(shop, div){
@@ -91,7 +94,9 @@ function nameMouseOver(shop, div){
     div.addEventListener('mouseout', function () {
         // Set text content to an empty string when the mouse leaves
         h1.textContent = ''
-    });
+    })
+};
+
 //event listener for 'add new coffee shop' form, updates in frontend and backend
 const newCoffeeShopForm = document.querySelector("#coffeeStoreInput")
 newCoffeeShopForm.addEventListener("submit", (e) => {
@@ -104,6 +109,8 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
         latitude: e.target["new-latitude-input"].value,
         longitude: e.target["new-longitude-input"].value,
         wifi: e.target["new-wifi-input"].checked,
+        opening: e.target["new-opening-input"].value,
+        closing: e.target["new-closing-input"].value,
     }
 
 
@@ -125,10 +132,15 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
             "latitude": newShop.latitude,
             "longitude": newShop.longitude,
             "space_rating": newShop.space_rating,
-            "wifi": newShop.wifi
+            "wifi": newShop.wifi,
+            "opening": newShop.opening,
+            "closing": newShop.closing
         })
     })
 })
+
+
+
 // work in progressssssssssss
 // const currentDate = new Date();
 // const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });

@@ -1,60 +1,59 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <title>TBD</title>
-  <meta name="Dom and Emmi" content="">
+  <title>Coffee Compass</title>
+  <meta name="" content="">
   <meta name="" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="secretFile.js"></script>
-  <script src="maps.js"></script>
+  <script src="maps.js"></script> 
+  <script src="secretFile.js"></script> 
+  <script defer src="index.js"></script>
   <link href="style.css" rel="stylesheet">
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUKWf9TYrEh8EtUkLg7qAblGL8kT7Uyps&callback=initMap"></script>
 </head>
 
 <body>
-    <div id="mainTitle">
+    <div id="fullScreen">
+    <div class ="container">
         <div id="headerrr"class="header">Coffee Compass</div>
-    </div>
-    
-    <div id="shopNavBar">
-        <nav id="shopList">
+        <div id="shopNavBar" class="column">
+            <h2 id="secondTitle">Shops:</h2>
+            <nav id="shopList">
             <!---- add coffe shops here, make appear on side! ---->
         </nav>
-    </div>
-
-<section id="shopDetails">
-    <!---- all the details for the shop goes here-->
-    <img id="shopImage" src>
+        </div>
+        <div id="shopDetails" class="column">
+            <img id="shopImage" src>
         <div id="dets">
             <h2 id="shopTitle"></h2>
             <h3 id="shopSpaceRating"></h3>
-            <h3 id="shopWifi"></h3>
+            <div id="shopWifi"></div>
             <div id="shopMap"></div>
         </div>
+
     </div>
-        <div id="input-form" class="column">
+        <div id="input-form" class="middleColumn">
             <h2 id="new-shop-heading">Add New Coffee Shop</h2>
             <form id="coffeeStoreInput" action="#" method="POST">
                     <input id="new-name-input" type="text" name="new-name-input" placeholder="Name">
                     <input id="new-img-input" type="text" name="new-img-input" placeholder="Image">
                     <input id="new-space-rating-input" type="text" name="new-space-rating-input" placeholder="Rate the space 1-5">
+                    <input id="new-opening-input" type="text" name="new-opening-input" placeholder="Opening Time">
+                    <input id="new-closing-input" type="text" name="new-closing-input" placeholder="Closing Time">
                     <input id="new-latitude-input" type="text" name="new-latitude-input" placeholder="Latitude">
                     <input id="new-longitude-input" type="text" name="new-longitude-input" placeholder="Longitude">
                     <br>
                     <label>Do they have Wifi?</label>
-                    <input id="new-wifi-input" type="checkbox" name="new-wifi-input">
+                    <input id="new-wifi-input" type="checkbox" value="true" name="new-wifi-input">
                     <br>
                     <input id="submit-button" type="submit" value="Add">
              </form>
-
         </div>
     </div>
-    <!---- all the details for the shop goes here-->
-   
 
-  <script defer src="index.js"></script>
+  
+
 </body>
 
 </html>

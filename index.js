@@ -28,6 +28,7 @@ fetch('http://localhost:3000/shops')
     const globalTime = document.querySelector("#shopTime")
     const webIcon = document.querySelector("#webIcon")
     const webIconLink = document.querySelector("#webIconLink")
+    const globalHours = document.querySelector('#showHours')
 
 
     const shopMap = document.querySelector("#shopMap")    
@@ -141,28 +142,3 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
     })
 })
 
-
-
-// work in progressssssssssss
-// const currentDate = new Date();
-// const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-
-// function shopHours(shop) {
-//    const nav = document.querySelector('shopList')
-    
-//     const openingTime = shop.hours.opening
-
-    
-//     const closingTime = shop.hours.closing
-
-//     const h2 = document.createElement('h2');
-//     // Check if the current time is within the opening and closing hours
-//     if (new Date() >= openingTime && new Date() <= closingTime) {
-//         h2.textContent = "Open";
-//     } else {
-//         h2.textContent = "Closed";
-//     }
-//     h2.append(nav)
-
-// }
-// console.log(shopHours())

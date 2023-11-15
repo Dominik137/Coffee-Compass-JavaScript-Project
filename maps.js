@@ -17,15 +17,15 @@
 
 //      }
 
-     function initMap(variableShop) {
+    //  function initMap(variableShop) {
 
-        let position = { lat: variableShop.latitude, lng: variableShop.longitude};
-        let map = new google.maps.Map(
-            document.querySelector("#shopMap"), {zoom: 15, center: position}
+    //     let position = { lat: variableShop.latitude, lng: variableShop.longitude};
+    //     let map = new google.maps.Map(
+    //         document.querySelector("#shopMap"), {zoom: 15, center: position}
     
-        )
-        let marker = new google.maps.Marker({position:position, map:map}) 
+    //     )
+    //     let marker = new google.maps.Marker({position:position, map:map}) 
     
-        return map
+    //     return map
     
-         }
+    //      }

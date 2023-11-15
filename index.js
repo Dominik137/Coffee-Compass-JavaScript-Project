@@ -43,8 +43,10 @@ function shopNavBar(shop){
     img.src = shop.img
 //creats the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
-        nameMouseOver(shop)
-    }, { once: true })
+        nameMouseOver(shop, div)
+    }, 
+    // { once: true }
+    )
     img.addEventListener('click', ()=>{
         shopInfo(shop)
         shopMap.style.display = "block"
@@ -79,12 +81,17 @@ function shopInfo(shop){
 
 
 
-function nameMouseOver(shop, img){
+function nameMouseOver(shop, div){
     const h1 = document.createElement('h1')
-    navImg.append(h1)
+    // document.querySelector("#shopList").append(h1)
+    div.append(h1)
     h1.textContent = shop.name
-}
+    h1.className = "shopNameh1"
 
+    div.addEventListener('mouseout', function () {
+        // Set text content to an empty string when the mouse leaves
+        h1.textContent = ''
+    });
 //event listener for 'add new coffee shop' form, updates in frontend and backend
 const newCoffeeShopForm = document.querySelector("#coffeeStoreInput")
 newCoffeeShopForm.addEventListener("submit", (e) => {
@@ -122,3 +129,26 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
         })
     })
 })
+// work in progressssssssssss
+// const currentDate = new Date();
+// const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+
+// function shopHours(shop) {
+//    const nav = document.querySelector('shopList')
+    
+//     const openingTime = shop.hours.opening
+
+    
+//     const closingTime = shop.hours.closing
+
+//     const h2 = document.createElement('h2');
+//     // Check if the current time is within the opening and closing hours
+//     if (new Date() >= openingTime && new Date() <= closingTime) {
+//         h2.textContent = "Open";
+//     } else {
+//         h2.textContent = "Closed";
+//     }
+//     h2.append(nav)
+
+// }
+// console.log(shopHours())

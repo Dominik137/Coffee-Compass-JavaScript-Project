@@ -29,6 +29,9 @@ fetch('http://localhost:3000/shops')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
     const globalTime = document.querySelector("#shopTime")
+    const webIcon = document.querySelector("#webIcon")
+    const webIconLink = document.querySelector("#webIconLink")
+
 
     const shopMap = document.querySelector("#shopMap")    
 
@@ -54,8 +57,11 @@ function shopNavBar(shop){
         shopMap.style.display = "block"
 
     })
+ 
 
 }
+
+
 
 
 function shopInfo(shop){
@@ -63,8 +69,11 @@ function shopInfo(shop){
     globalName.textContent = shop.name
     globalImg.src = shop.img
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-
+    webIcon.src = "https://p7.hiclipart.com/preview/681/337/219/globe-computer-icons-earth-symbol-clip-art-world-wide-web.jpg"
+  
+    webIconLink.href = shop.website
     
+
     if (shop.wifi === true) {
         globalWifi.textContent = "Wifi",
         globalWifi.style.color = "#549c30"
@@ -77,7 +86,6 @@ function shopInfo(shop){
         
     //global variable for use everywhere
     currentShop = shop
-
 
     initMap(shop)
 
@@ -106,18 +114,19 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
         name: e.target["new-name-input"].value,
         img: e.target["new-img-input"].value,
         space_rating: e.target["new-space-rating-input"].value,
-        latitude: e.target["new-latitude-input"].value,
-        longitude: e.target["new-longitude-input"].value,
-        wifi: e.target["new-wifi-input"].checked,
         opening: e.target["new-opening-input"].value,
         closing: e.target["new-closing-input"].value,
+        website: e.target["new-website-input"].value,
+        latitude: parseFloat(e.target["new-latitude-input"].value),
+        longitude: parseFloat(e.target["new-longitude-input"].value),
+        wifi: e.target["new-wifi-input"].checked,
+        
     }
 
-
-
+    initMap(newShop)
     shopInfo(newShop)
     shopNavBar(newShop)
-    initMap(newShop)
+    
 
     newCoffeeShopForm.reset()
 
@@ -134,7 +143,8 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
             "space_rating": newShop.space_rating,
             "wifi": newShop.wifi,
             "opening": newShop.opening,
-            "closing": newShop.closing
+            "closing": newShop.closing,
+            "website": newShop.website
         })
     })
 })

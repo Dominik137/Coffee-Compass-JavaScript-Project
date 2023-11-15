@@ -5,12 +5,13 @@
       "name": "Huckleberry Roasters",
       "img": "https://cdn.shopify.com/s/files/1/0299/9077/files/IMG_0017.jpg?v=1572496178",
       "space_rating": 4,
-      "latitude": 39.75382043141637, 
+      "latitude": 39.75382043141637,
       "longitude": -104.99748059849081,
       "wifi": true,
       "opening": 7,
-      "closing": 17
-      },
+      "closing": 17,
+      "website": "https://huckleberryroasters.com/"
+    },
     {
       "id": 2,
       "name": "Corvus Coffee Roasters",
@@ -19,19 +20,21 @@
       "latitude": 39.774985995054685,
       "longitude": -104.96171404849683,
       "wifi": true,
-      "opening": 6.30,
-      "closing": 18.30
+      "opening": 6.3,
+      "closing": 18.3,
+      "website": "https://www.corvuscoffee.com/"
     },
     {
       "name": "Coffee High Co.",
       "img": "https://lh3.googleusercontent.com/p/AF1QipPjKj_X5zyYErzkwExYVGIcgI9h5c0c-5TWjALk=s1360-w1360-h1020",
       "space_rating": "3",
       "wifi": false,
-      "latitude": 39.75668776618804, 
+      "latitude": 39.75668776618804,
       "longitude": -104.99059850156038,
       "id": 3,
       "opening": 8,
-      "closing": 16
+      "closing": 16,
+      "website": "https://www.coffeehighco.com/"
     }
   ]
 }

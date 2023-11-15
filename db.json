@@ -7,7 +7,9 @@
       "space_rating": 4,
       "latitude": 39.75382043141637, 
       "longitude": -104.99748059849081,
-      "wifi": true
+      "wifi": true,
+      "opening": 7,
+      "closing": 17
     },
     {
       "id": 2,
@@ -16,7 +18,9 @@
       "space_rating": 5,
       "latitude": 39.774985995054685,
       "longitude": -104.96171404849683,
-      "wifi": true
+      "wifi": true,
+      "opening": 6,
+      "closing": 18
     },
     {
       "name": "Coffee High Co.",
@@ -25,7 +29,9 @@
       "wifi": false,
       "latitude": 39.75668776618804, 
       "longitude": -104.99059850156038,
-      "id": 3
+      "id": 3,
+      "opening": 8,
+      "closing": 16
     }
   ]
 }

@@ -117,6 +117,18 @@ body {
     user-select: none;
     pointer-events: none
 }
+.shopHoursh2{
+    position: absolute;
+    /* top: 15%;
+    left: 50%; */
+    /* transform: translate(-25%, -390%); */
+    transform: translate(2px, -60px);
+    z-index: 1; /* Ensure the h1 is above the image */
+    color: aliceblue;
+    padding: 0px;
+    user-select: none;
+    pointer-events: none;
+}
 
 #input-form {
     /* position: relative; */

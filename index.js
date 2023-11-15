@@ -28,6 +28,7 @@ fetch('http://localhost:3000/shops')
     const globalImg = document.querySelector('#shopImage')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
+    const globalHours = document.querySelector('#showHours')
 
     const shopMap = document.querySelector("#shopMap")
     const dets = document.querySelector("#dets")
@@ -46,13 +47,14 @@ function shopNavBar(shop){
 //creats the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
         nameMouseOver(shop, div)
+        displayHours(shop, div)
     }, 
     // { once: true }
     )
     img.addEventListener('click', ()=>{
         shopInfo(shop)
         shopMap.style.display = "block"
-
+        
     })
 }
 
@@ -62,7 +64,8 @@ function shopInfo(shop){
     globalName.textContent = shop.name
     globalImg.src = shop.img
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-
+    // globalHours.textContent = 
+    
     
     if (shop.wifi === true) {
         globalWifi.textContent = "Wifi",
@@ -135,4 +138,30 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
 
 // work in progressssssssssss
 const currentDate = new Date();
-const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+const time = parseFloat(currentTimeString)
+
+
+function displayHours(shop, div){
+    const h2 = document.createElement('h2')
+    div.append(h2)
+    h2.className = 'shopHoursh2'
+    const openingTime = shop.opening
+    const closingTime = shop.closing
+    
+    if (time >= openingTime && time <= closingTime) {
+        h2.textContent = "Open";
+        globalHours.textContent = "Open"
+    } else {
+        h2.textContent = "Closed";
+        globalHours.textContent = "Closed";
+        
+
+    }
+    div.addEventListener('mouseout', function () {
+        // Set text content to an empty string when the mouse leaves
+        h2.textContent = ''
+    })
+}
+
+

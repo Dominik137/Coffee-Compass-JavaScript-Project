@@ -22,7 +22,9 @@ fetch('http://localhost:3000/shops')
 
 
     });
-
+    const currentDate = new Date();
+    const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const time = parseFloat(currentTimeString)
     
     const globalName = document.querySelector('#shopTitle')
     const globalImg = document.querySelector('#shopImage')
@@ -31,6 +33,7 @@ fetch('http://localhost:3000/shops')
     const globalTime = document.querySelector("#shopTime")
     const webIcon = document.querySelector("#webIcon")
     const webIconLink = document.querySelector("#webIconLink")
+    const globalHours = document.querySelector('#showHours')
 
 
     const shopMap = document.querySelector("#shopMap")    
@@ -49,12 +52,23 @@ function shopNavBar(shop){
 //creats the images for the different shops and displays them in our navbar!
     img.addEventListener('mouseover', ()=>{
         nameMouseOver(shop, div)
+        displayHours(shop, div)
     }, 
     // { once: true }
     )
     img.addEventListener('click', ()=>{
+        const openingTime = shop.opening
+        const closingTime = shop.closing
+        
+        if (time >= openingTime && time <= closingTime) {
+            globalHours.textContent = "Open"
+        } else {
+            globalHours.textContent = "Closed";
+            
+        }
         shopInfo(shop)
         shopMap.style.display = "block"
+        
 
     })
  
@@ -72,6 +86,8 @@ function shopInfo(shop){
     webIcon.src = "https://p7.hiclipart.com/preview/681/337/219/globe-computer-icons-earth-symbol-clip-art-world-wide-web.jpg"
   
     webIconLink.href = shop.website
+    // globalHours.textContent = 
+    
     
 
     if (shop.wifi === true) {
@@ -155,22 +171,29 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
 // const currentDate = new Date();
 // const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
-// function shopHours(shop) {
-//    const nav = document.querySelector('shopList')
+
+
+
+function displayHours(shop, div){
+    const h2 = document.createElement('h2')
+    div.append(h2)
+    h2.className = 'shopHoursh2'
+    const openingTime = shop.opening
+    const closingTime = shop.closing
     
-//     const openingTime = shop.hours.opening
+    if (time >= openingTime && time <= closingTime) {
+        h2.textContent = "Open";
+        // globalHours.textContent = "Open"
+    } else {
+        h2.textContent = "Closed";
+        // globalHours.textContent = "Closed";
+        
 
-    
-//     const closingTime = shop.hours.closing
+    }
+    div.addEventListener('mouseout', function () {
+        // Set text content to an empty string when the mouse leaves
+        h2.textContent = ''
+    })
+}
 
-//     const h2 = document.createElement('h2');
-//     // Check if the current time is within the opening and closing hours
-//     if (new Date() >= openingTime && new Date() <= closingTime) {
-//         h2.textContent = "Open";
-//     } else {
-//         h2.textContent = "Closed";
-//     }
-//     h2.append(nav)
 
-// }
-// console.log(shopHours())

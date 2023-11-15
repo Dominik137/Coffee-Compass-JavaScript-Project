@@ -122,13 +122,31 @@ body {
     /* top: 15%;
     left: 50%; */
     /* transform: translate(-25%, -390%); */
-    transform: translate(2px, -60px);
+    transform: translate(100px, -70px);
     z-index: 1; /* Ensure the h1 is above the image */
     color: aliceblue;
     padding: 0px;
     user-select: none;
     pointer-events: none;
+    animation: pulse 1s infinite;
+    background-color: #5b7c99;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;;
+    font-weight: normal;    
 }
+@keyframes pulse {
+  0% {
+    color: aliceblue;
+  }
+  50%{
+    opacity: 0;
+  }
+  100% {
+    color: aliceblue;
+  }
+}
+
+
 
 #input-form {
     /* position: relative; */

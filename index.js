@@ -22,7 +22,9 @@ fetch('http://localhost:3000/shops')
 
 
     });
-
+    const currentDate = new Date();
+    const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    const time = parseFloat(currentTimeString)
     
     const globalName = document.querySelector('#shopTitle')
     const globalImg = document.querySelector('#shopImage')
@@ -52,9 +54,19 @@ function shopNavBar(shop){
     // { once: true }
     )
     img.addEventListener('click', ()=>{
+        const openingTime = shop.opening
+        const closingTime = shop.closing
+        
+        if (time >= openingTime && time <= closingTime) {
+            globalHours.textContent = "Open"
+        } else {
+            globalHours.textContent = "Closed";
+            
+        }
         shopInfo(shop)
         shopMap.style.display = "block"
         
+
     })
 }
 
@@ -136,10 +148,7 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
     })
 })
 
-// work in progressssssssssss
-const currentDate = new Date();
-const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-const time = parseFloat(currentTimeString)
+
 
 
 function displayHours(shop, div){
@@ -151,10 +160,10 @@ function displayHours(shop, div){
     
     if (time >= openingTime && time <= closingTime) {
         h2.textContent = "Open";
-        globalHours.textContent = "Open"
+        // globalHours.textContent = "Open"
     } else {
         h2.textContent = "Closed";
-        globalHours.textContent = "Closed";
+        // globalHours.textContent = "Closed";
         
 
     }

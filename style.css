@@ -17,14 +17,14 @@
   }
 
     .column {
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     padding: 20px;
     text-align: center;
   
   }
   
   .middleColumn {
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     padding: 20px;
     text-align: center;
   }
@@ -240,10 +240,7 @@ body {
     margin-right: 250px
 
   }
+#shopTitle{
+    color: #29344a;
+}
 
-  #webIcon {
-    max-height: 30px;
-    position: relative;
-    bottom: 50px;
-    left: 200px;
-  }

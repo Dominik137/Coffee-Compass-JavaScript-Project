@@ -6,15 +6,15 @@ fetch('http://localhost:3000/shops')
     
 
 // fetch random coffee image from external API and display on main page
-//     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
-//     .then(r => r.json())
-//     .then(gifs => {
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
+    .then(r => r.json())
+    .then(gifs => {
         
-//         const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
-//         const randomCoffeeImg = randomCoffee.images.original.url
-//         globalImg.src = randomCoffeeImg
+        const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
+        const randomCoffeeImg = randomCoffee.images.original.url
+        globalImg.src = randomCoffeeImg
                 
-// })
+})
 
     shops.forEach(shop => {
         shopNavBar(shop)
@@ -31,9 +31,8 @@ fetch('http://localhost:3000/shops')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
     const globalTime = document.querySelector("#shopTime")
-    const webIcon = document.querySelector("#webIcon")
-    const webIconLink = document.querySelector("#webIconLink")
     const globalHours = document.querySelector('#showHours')
+    const webLink = document.querySelector("#webLink")
 
 
     const shopMap = document.querySelector("#shopMap")    
@@ -83,9 +82,8 @@ function shopInfo(shop){
     globalName.textContent = shop.name
     globalImg.src = shop.img
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-    webIcon.src = "https://p7.hiclipart.com/preview/681/337/219/globe-computer-icons-earth-symbol-clip-art-world-wide-web.jpg"
   
-    webIconLink.href = shop.website
+    webLink.href = shop.website
     // globalHours.textContent = 
     
     

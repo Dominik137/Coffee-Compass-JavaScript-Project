@@ -20,8 +20,8 @@
       "latitude": 39.774985995054685,
       "longitude": -104.96171404849683,
       "wifi": true,
-      "opening": 6.3,
-      "closing": 18.3,
+      "opening": 6,
+      "closing": 18,
       "website": "https://www.corvuscoffee.com/"
     },
     {
@@ -35,6 +35,30 @@
       "opening": 8,
       "closing": 16,
       "website": "https://www.coffeehighco.com/"
+    },
+    {
+      "name": "Method Coffee Roasters",
+      "img": "https://dailycoffeenews.com/wp-content/uploads/2023/08/Method-Coffee-Roasters-Art-District-Denver-4.jpg",
+      "space_rating": "4",
+      "wifi": true,
+      "latitude": 39.76229628124751,
+      "longitude": -105.01150564538396,
+      "id": 4,
+      "opening": 7,
+      "closing": 17,
+      "website": "https://www.methodroasters.com/"
+    },
+    {
+      "name": "Blue Sparrow Coffee",
+      "img": " https://media.cntraveler.com/photos/5bdb15d3d1f6b12d39556a9b/16:9/w_1920,c_limit/Blue-Sparrow-Coffee_BSC_high-res-4.jpg",
+      "latitude": 39.76453005356723,
+      "longitude": -104.98114143142907,
+      "space_rating": "5",
+      "wifi": true,
+      "opening": "6",
+      "closing": "17",
+      "website": " https://www.bluesparrowcoffee.com/",
+      "id": 5
     }
   ]
 }

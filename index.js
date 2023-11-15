@@ -31,8 +31,7 @@ fetch('http://localhost:3000/shops')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
     const globalTime = document.querySelector("#shopTime")
-    const webIcon = document.querySelector("#webIcon")
-    const webIconLink = document.querySelector("#webIconLink")
+    const webLink = document.querySelector("#webLink")
     const globalHours = document.querySelector('#showHours')
 
 
@@ -76,19 +75,15 @@ function shopNavBar(shop){
 }
 
 
-
-
-function shopInfo(shop){
+function shopInfo(shop) {
     
     globalName.textContent = shop.name
     globalImg.src = shop.img
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-    webIcon.src = "https://p7.hiclipart.com/preview/681/337/219/globe-computer-icons-earth-symbol-clip-art-world-wide-web.jpg"
+
+
+    webLink.href = shop.website
   
-    webIconLink.href = shop.website
-    // globalHours.textContent = 
-    
-    
 
     if (shop.wifi === true) {
         globalWifi.textContent = "Wifi",
@@ -164,13 +159,6 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
         })
     })
 })
-
-
-
-// work in progressssssssssss
-// const currentDate = new Date();
-// const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-
 
 
 

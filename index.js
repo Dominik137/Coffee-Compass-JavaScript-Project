@@ -5,7 +5,7 @@ fetch('http://localhost:3000/shops')
     shopMap.style.display = "none"
     
 
-// COMMENTED OUT INTENTIONALLY - fetch random coffee image from external API and display on main page
+// COMMENTED OUT INTENTIONALLY TO LIMIT API CALL - fetch random coffee image from external API and display on main page
 //     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
 //     .then(r => r.json())
 //     .then(gifs => {

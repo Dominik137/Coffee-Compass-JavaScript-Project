@@ -5,7 +5,7 @@ fetch('http://localhost:3000/shops')
     shopMap.style.display = "none"
     
 
-// fetch random coffee image from external API and display on main page
+// COMMENTED OUT INTENTIONALLY TO LIMIT API CALL - fetch random coffee image from external API and display on main page
 //     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${giphyApiKey}&q=coffee&limit=25&offset=0&rating=g&lang=en&bundle=messaging_non_clips`) 
 //     .then(r => r.json())
 //     .then(gifs => {
@@ -13,6 +13,7 @@ fetch('http://localhost:3000/shops')
 //         const randomCoffee = gifs.data[Math.floor(Math.random() * 25)]
 //         const randomCoffeeImg = randomCoffee.images.original.url
 //         globalImg.src = randomCoffeeImg
+//         globalName.textContent = "Welcome to Coffee Compass! Click a shop on the left to get started."
                 
 // })
 
@@ -22,6 +23,7 @@ fetch('http://localhost:3000/shops')
 
 
     });
+    //setting all global constants
     const currentDate = new Date();
     const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     const time = parseFloat(currentTimeString)
@@ -31,8 +33,7 @@ fetch('http://localhost:3000/shops')
     const globalSpaceRating = document.querySelector('#shopSpaceRating')
     const globalWifi = document.querySelector('#shopWifi')
     const globalTime = document.querySelector("#shopTime")
-    const webIcon = document.querySelector("#webIcon")
-    const webIconLink = document.querySelector("#webIconLink")
+    const webLink = document.querySelector("#webLink")
     const globalHours = document.querySelector('#showHours')
 
 
@@ -42,28 +43,31 @@ fetch('http://localhost:3000/shops')
     mapLink.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`
     shopMap.append(mapLink)
 
-function shopNavBar(shop){
+// display coffee shops in left hand side bar
+    function shopNavBar(shop){
     const navImg = document.querySelector('#shopList')
     const div = document.createElement('div')
     const img = document.createElement('img')
     div.append(img)
     navImg.append(div)
     img.src = shop.img
-//creats the images for the different shops and displays them in our navbar!
+//mouseover event: display coffee shop name 
     img.addEventListener('mouseover', ()=>{
         nameMouseOver(shop, div)
         displayHours(shop, div)
     }, 
-    // { once: true }
     )
+
+//mouseout event: display coffee shop open/closed status
     img.addEventListener('click', ()=>{
         const openingTime = shop.opening
         const closingTime = shop.closing
+        console.log(currentTimeString)
         
-        if (time >= openingTime && time <= closingTime) {
-            globalHours.textContent = "Open"
+        if (time >= openingTime && time < closingTime) {
+            globalHours.textContent = `${openingTime}am - ${(closingTime-12)}pm: Open`
         } else {
-            globalHours.textContent = "Closed";
+            globalHours.textContent = `${openingTime}am - ${(closingTime-12)}pm: Closed`;
             
         }
         shopInfo(shop)
@@ -75,20 +79,16 @@ function shopNavBar(shop){
 
 }
 
-
-
-
-function shopInfo(shop){
+//display shop details in main section of page
+function shopInfo(shop) {
     
-    globalName.textContent = shop.name
+    globalName.textContent = `${shop.name} 🌐`
     globalImg.src = shop.img
     globalSpaceRating.textContent = `Space rating: ${shop.space_rating}`
-    webIcon.src = "https://p7.hiclipart.com/preview/681/337/219/globe-computer-icons-earth-symbol-clip-art-world-wide-web.jpg"
+
+
+    webLink.href = shop.website
   
-    webIconLink.href = shop.website
-    // globalHours.textContent = 
-    
-    
 
     if (shop.wifi === true) {
         globalWifi.textContent = "Wifi",
@@ -107,7 +107,7 @@ function shopInfo(shop){
 
 }
 
-
+//display coffee shop name in left hand nav bar - event listener above 
 function nameMouseOver(shop, div){
     const h1 = document.createElement('h1')
     // document.querySelector("#shopList").append(h1)
@@ -166,14 +166,7 @@ newCoffeeShopForm.addEventListener("submit", (e) => {
 })
 
 
-
-// work in progressssssssssss
-// const currentDate = new Date();
-// const currentTimeString = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-
-
-
-
+//function to display shop hours in main section including open/closed status
 function displayHours(shop, div){
     const h2 = document.createElement('h2')
     div.append(h2)
@@ -181,7 +174,7 @@ function displayHours(shop, div){
     const openingTime = shop.opening
     const closingTime = shop.closing
     
-    if (time >= openingTime && time <= closingTime) {
+    if (time >= openingTime && time < closingTime) {
         h2.textContent = "Open";
         // globalHours.textContent = "Open"
     } else {
@@ -195,4 +188,10 @@ function displayHours(shop, div){
         h2.textContent = ''
     })
 }
+
+
+
+
+
+
 
